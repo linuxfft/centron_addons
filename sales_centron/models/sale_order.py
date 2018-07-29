@@ -11,10 +11,10 @@ class SaleOrder(models.Model):
     def button_contract_dummy(self):
         self.ensure_one()
         pty = self.contract_amount_untax / self.amount_untaxed
-        if pty == 1.0 :
+        if pty == 1.0:
             return True
         for line in self.order_line:
-            line.price_unit = pty * line.price_unit
+            line.price_unit = pty * line.price_unit if line.price_unit != 0.00 else 0.00
 
     @api.depends('order_line.price_total', 'contract_amount_tax')
     def _amount_all(self):
