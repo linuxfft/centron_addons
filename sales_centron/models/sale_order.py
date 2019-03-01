@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api,SUPERUSER_ID
 from odoo.exceptions import UserError
 
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
+
+    @api.multi
+    def action_confirm(self):
+        if not (self._uid == SUPERUSER_ID or self.env.user.has_group('sales_centron.group_sale_salesorder_approve')):
+            raise UserError(u'必须是订单申批员才能进行确认')
+        super(SaleOrder, self).action_confirm()
 
     @api.multi
     def button_contract_dummy(self):

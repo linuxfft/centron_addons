@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sales_centron_sales_centron,sales_centron.sales_centron,model_sales_centron_sales_centron,,1,0,0,0
