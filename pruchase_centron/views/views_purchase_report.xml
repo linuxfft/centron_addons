@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="centron_view_purchase_order_pivot">
+        <field name="name">centron_view_purchase_order_pivot</field>
+        <field name="model">purchase.report</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_pivot"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="order_id" type="row"/>
+            </field>
+        </field>
+    </record>
+</odoo>
