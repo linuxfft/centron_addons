@@ -11,6 +11,18 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="centron_purchase_order_search_inherit">
+        <field name="name">centron_purchase_order_search_inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" string="Reference"
+                       filter_domain="['|',('name','ilike',self),('partner_ref','ilike',self)]"/>
+            </xpath>
+        </field>
+    </record>
+
     <record id="centron_purchase_order_view_form_inherit" model="ir.ui.view">
         <field name="name">centron_purchase_order_view_form_inherit</field>
         <field name="model">purchase.order</field>
