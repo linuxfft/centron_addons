@@ -10,4 +10,18 @@
             </field>
         </field>
     </record>
+
+    <record id="centron_purchase_order_view_form_inherit" model="ir.ui.view">
+        <field name="name">centron_purchase_order_view_form_inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='purchase_delivery_invoice']//field[@name='user_id']" position="after">
+                <field name="act_company_id" required="1"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_qty']" position="attributes">
+                <attribute name="sum">Order Qty</attribute>
+            </xpath>
+        </field>
+    </record>
 </odoo>

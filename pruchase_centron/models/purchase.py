@@ -4,6 +4,13 @@
 from odoo import fields, models
 
 
+class PurchaseOrder(models.Model):
+    _inherit = 'purchase.order'
+
+    act_company_id = fields.Many2one('res.company', '实际业务单据公司',
+                                     default=lambda self: self.env['res.company']._company_default_get('purchase.order'))
+
+
 class PurchaseReport(models.Model):
     _inherit = "purchase.report"
 
