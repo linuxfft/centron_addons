@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_delivery_document_inherit_purchase_stock" inherit_id="stock.report_delivery_document">
+        <xpath expr="//h2" position="before">
+            <div class="row justify-content-end" t-if="o.origin and not o.sudo().sale_id">
+                <div class="col-4">
+                    <strong>Reference:</strong>
+                    <p t-field="o.origin"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

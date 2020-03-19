@@ -25,5 +25,6 @@
     # always loaded
     'data': [
         'views/views_purchase_report.xml',
+        'report/purchase_report_incoming.xml'
     ],
 }
