@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="centron_quant_search_view_inherit" model="ir.ui.view">
+        <field name="name">centron_quant_search_view_inherit</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.quant_search_view"/>
+        <field name="arch" type="xml">
+            <data>
+               <xpath expr="//filter[@name='company']" position="after">
+                    <filter string='Product Category' name="category" domain="[]" context="{'group_by': 'category_id'}"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+    </data>
+</odoo>
